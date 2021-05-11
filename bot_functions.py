@@ -1,6 +1,7 @@
 from telegram.ext import CallbackContext
 from random import randint
 
+TOKEN = "1730704056:AAGbswrrc5tR8qnw5p_JxE6Z25J-Uo0pBdw"
 MY_ID = 472565949
 ANDREW_ID = 333294297
 RITA_ID = 808833615
