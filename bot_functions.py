@@ -1,12 +1,24 @@
-import logging
-
 from telegram.ext import CallbackContext
 
 MY_ID = 472565949
+ANDREW_ID = 333294297
+RITA_ID = 808833615
+GOOD_MORNINGS = ["Доброе утро, любимая)\nХорошего тебе дня😘",
+                 "Доброе утро♥️",
+                 "Привет) Как спалось?)",
+                 "Просыпайся, солнышко♥️",
+                 "С добрым утром, котёнок♥️ Очень надеюсь, что ты выпсалась"]
 
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
-logger = logging.getLogger(__name__)
+
+def good_morning(context: CallbackContext):
+    message = "Hi"
+    context.bot.send_message(chat_id=MY_ID, text=message)
+
+
+def once(context: CallbackContext):
+    message = "Luv u)"
+    context.bot.send_message(chat_id=MY_ID, text=message)
+    context.bot.send_message(chat_id=ANDREW_ID, text=message)
 
 
 def start(update, context):
@@ -16,7 +28,3 @@ def start(update, context):
 
 def echo(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
-
-
-def error(update, context):
-    logger.warning('Update "%s" caused error "%s"', update, context.error)
