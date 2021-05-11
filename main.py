@@ -11,8 +11,12 @@ MY_ID = 472565949
 updater = Updater(token=TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-j = updater.job_queue
-j.run_daily(bot_functions.good_morning, time=datetime.time(hour=9, minute=8, second=00))
+job = updater.job_queue
+job.run_daily(bot_functions.good_morning, time=datetime.time(hour=4, minute=00, second=00))
+job.run_daily(bot_functions.good_night, time=datetime.time(hour=18, minute=00, second=00))
+job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=7, minute=12, second=00))
+job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=10, minute=23, second=00))
+job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=14, minute=49, second=00))
 
 updater.start_polling()
 updater.idle()
