@@ -23,16 +23,16 @@ job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=14, min
 job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=12, minute=17, second=00))
 
 
-@bot.message_handler(content_types=['text'])
-def get_reply(message):
-    if "хорошо" in message.text or "Хорошо" in message.text:
-        bot.send_message(message.from_user.id, "Замечательно, очень рад за тебя)")
-    elif "плохо" in message.text or "Плохо" in message.text:
-        bot.send_message(message.from_user.id, "Зай, не грусти, ты со всем справишься, всё будет хорошо♥")
-    else:
-        bot.send_message(message.from_user.id, ")")
-
-
-bot.polling(none_stop=True, interval=0)
+# @bot.message_handler(content_types=['text'])
+# def get_reply(message):
+#     if "хорошо" in message.text or "Хорошо" in message.text:
+#         bot.send_message(message.from_user.id, "Замечательно, очень рад за тебя)")
+#     elif "плохо" in message.text or "Плохо" in message.text:
+#         bot.send_message(message.from_user.id, "Зай, не грусти, ты со всем справишься, всё будет хорошо♥")
+#     else:
+#         bot.send_message(message.from_user.id, ")")
+#
+#
+# bot.polling(none_stop=True, interval=0)
 updater.start_polling()
 updater.idle()
