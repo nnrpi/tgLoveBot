@@ -10,7 +10,7 @@ TOKEN = "1730704056:AAGbswrrc5tR8qnw5p_JxE6Z25J-Uo0pBdw"
 TEST_TOKEN = "1767534586:AAGGYJjvfuEMENwXqwj14pRajerHuu8HpVw"
 RANDOM_MESSAGE_TIME = [(7, 12, 00), (10, 28, 00), (13, 36, 00), (14, 7, 00), (17, 17, 00), (16, 42, 00)]
 
-updater = Updater(token=TEST_TOKEN, use_context=True)
+updater = Updater(token=TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
