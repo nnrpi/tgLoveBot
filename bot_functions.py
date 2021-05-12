@@ -22,13 +22,16 @@ RANDOM_MESSAGES = ["Привет, как дела?", "Привет, как жи�
 def good_morning(context: CallbackContext) -> None:
     message = GOOD_MORNINGS[randint(0, len(GOOD_MORNINGS) - 1)]
     context.bot.send_message(chat_id=MY_ID, text=message)
+    context.bot.send_message(chat_id=RITA_ID, text=message)
 
 
 def good_night(context: CallbackContext) -> None:
     message = GOOD_NIGHTS[randint(0, len(GOOD_NIGHTS) - 1)]
     context.bot.send_message(chat_id=MY_ID, text=message)
+    context.bot.send_message(chat_id=RITA_ID, text=message)
 
 
 def send_random_message(context: CallbackContext) -> None:
     message = RANDOM_MESSAGES[randint(0, len(RANDOM_MESSAGES) - 1)]
     context.bot.send_message(chat_id=MY_ID, text=message)
+    context.bot.send_message(chat_id=RITA_ID, text=message)

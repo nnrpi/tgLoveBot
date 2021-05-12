@@ -19,6 +19,7 @@ job.run_daily(bot_functions.good_morning, time=datetime.time(hour=4, minute=00, 
 job.run_daily(bot_functions.good_night, time=datetime.time(hour=18, minute=00, second=00))
 job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=7, minute=12, second=00))
 job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=10, minute=28, second=00))
+job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=13, minute=36, second=00))
 job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=14, minute=49, second=00))
 job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=17, minute=17, second=00))
 
