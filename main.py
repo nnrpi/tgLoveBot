@@ -21,11 +21,6 @@ for hour, minute, second in RANDOM_MESSAGE_TIME:
     job.run_daily(
         bot_functions.send_random_message, time=datetime.time(hour=hour, minute=minute, second=second)
     )
-# job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=7, minute=12, second=00))
-# job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=10, minute=28, second=00))
-# job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=13, minute=36, second=00))
-# job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=14, minute=7, second=00))
-# job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=17, minute=17, second=00))
 
 
 # @bot.message_handler(content_types=['text'])
