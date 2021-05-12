@@ -1,3 +1,4 @@
+from telegram import Update, ForceReply
 from telegram.ext import CallbackContext
 from random import randint
 
@@ -14,10 +15,10 @@ GOOD_MORNINGS = ["Доброе утро, любимая)\nХорошего те�
 GOOD_NIGHTS = ["Спокойной ночи♥", "Доброй ночи)", "Сладких снов, солнце♥",
                "Спокойной ночи, котёнок😘", "Сладких снов!)", "До завтра, любовь моя♥"]
 RANDOM_MESSAGES = ["Привет, как дела?", "Привет, как жизнь?", "Привет, что делаешь?)",
-               "Хелоу, май дарлинг, хау а ю?)", "Всем хай, как жизнь?)",
-               "Добрый день, как ваша жизнь?", "Привет, как дела, как настроение, что делаешь?",
-                "Я скучаю", "Люблю тебя", "Котя, я соскучился", "Солнце, ты самая лучшая!)♥",
-                "Зая, ты такая красотка!", "Очень соскучился и хочу к тебе"]
+                   "Хелоу, май дарлинг, хау а ю?)", "Всем хай, как жизнь?)",
+                   "Добрый день, как ваша жизнь?", "Привет, как дела, как настроение, что делаешь?",
+                   "Я скучаю", "Люблю тебя", "Котя, я соскучился", "Солнце, ты самая лучшая!)♥",
+                   "Зая, ты такая красотка!", "Очень соскучился и хочу к тебе"]
 
 
 def good_morning(context: CallbackContext) -> None:
@@ -34,5 +35,24 @@ def good_night(context: CallbackContext) -> None:
 
 def send_random_message(context: CallbackContext) -> None:
     message = RANDOM_MESSAGES[randint(0, len(RANDOM_MESSAGES) - 1)]
+    # context.bot.send_message(chat_id=MY_ID, text=message)
     for id in USERS_ID:
         context.bot.send_message(chat_id=id, text=message)
+
+
+def start(update: Update, _: CallbackContext) -> None:
+    update.message.reply_text("Hello darling♥")
+
+
+def echo(update: Update, _: CallbackContext) -> None:
+    """Echo the user message."""
+    update.message.reply_text(update.message.text)
+
+def reply(update: Update, _: CallbackContext) -> None:
+    user_message = update.message.text
+    if "хорошо" in user_message or "Хорошо" in user_message:
+        update.message.reply_text("Замечательно, очень рад за тебя)")
+    elif "плохо" in user_message or "Плохо" in user_message:
+        update.message.reply_text("Зай, не грусти, ты со всем справишься, всё будет хорошо♥")
+    else:
+        update.message.reply_text(")")
