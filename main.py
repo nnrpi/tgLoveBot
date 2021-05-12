@@ -7,7 +7,7 @@ import bot_functions
 import telebot
 
 TOKEN = "1730704056:AAGbswrrc5tR8qnw5p_JxE6Z25J-Uo0pBdw"
-MY_ID = 472565949
+RANDOM_MESSAGE_TIME = [(7, 12, 00), (10, 28, 00), (13, 36, 00), (14, 7, 00), (17, 17, 00), (16, 42, 00)]
 bot = telebot.TeleBot(TOKEN)
 
 updater = Updater(token=TOKEN, use_context=True)
@@ -17,11 +17,15 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 job = updater.job_queue
 job.run_daily(bot_functions.good_morning, time=datetime.time(hour=4, minute=00, second=00))
 job.run_daily(bot_functions.good_night, time=datetime.time(hour=18, minute=00, second=00))
-job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=7, minute=12, second=00))
-job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=10, minute=28, second=00))
-job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=13, minute=36, second=00))
-job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=14, minute=49, second=00))
-job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=17, minute=17, second=00))
+for hour, minute, second in RANDOM_MESSAGE_TIME:
+    job.run_daily(
+        bot_functions.send_random_message, time=datetime.time(hour=hour, minute=minute, second=second)
+    )
+# job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=7, minute=12, second=00))
+# job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=10, minute=28, second=00))
+# job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=13, minute=36, second=00))
+# job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=14, minute=7, second=00))
+# job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=17, minute=17, second=00))
 
 
 # @bot.message_handler(content_types=['text'])
