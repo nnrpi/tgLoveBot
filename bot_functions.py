@@ -1,4 +1,4 @@
-from telegram import Update, ForceReply
+from telegram import Update
 from telegram.ext import CallbackContext
 from random import randint
 
@@ -6,7 +6,7 @@ TOKEN = "1730704056:AAGbswrrc5tR8qnw5p_JxE6Z25J-Uo0pBdw"
 MY_ID = 472565949
 ANDREW_ID = 333294297
 RITA_ID = 808833615
-USERS_ID = [MY_ID, RITA_ID, ANDREW_ID]
+USERS_ID = set([MY_ID, RITA_ID, ANDREW_ID])
 GOOD_MORNINGS = ["Доброе утро, любимая)\nХорошего тебе дня😘",
                  "Доброе утро♥️",
                  "Привет) Как спалось?)",
@@ -40,8 +40,15 @@ def send_random_message(context: CallbackContext) -> None:
         context.bot.send_message(chat_id=id, text=message)
 
 
-def start(update: Update, _: CallbackContext) -> None:
+def hi(update: Update, _: CallbackContext) -> None:
+    USERS_ID.add(update.message.chat_id)
     update.message.reply_text("Hello darling♥")
+
+
+def bye(update: Update, _: CallbackContext) -> None:
+    user_id = update.message.chat_id
+    USERS_ID.remove(user_id)
+    update.message.reply_text("Bye, it was nice to chat w/ u😊")
 
 
 def echo(update: Update, _: CallbackContext) -> None:
