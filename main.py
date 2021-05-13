@@ -14,6 +14,7 @@ dispatcher = updater.dispatcher
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 job = updater.job_queue
+job.run_once(bot_functions.once, 5)
 job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=18, minute=16, second=00))
 job.run_daily(bot_functions.good_morning, time=datetime.time(hour=5, minute=0, second=00))
 job.run_daily(bot_functions.good_night, time=datetime.time(hour=18, minute=00, second=00))

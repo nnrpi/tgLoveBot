@@ -40,6 +40,18 @@ def send_random_message(context: CallbackContext) -> None:
         context.bot.send_message(chat_id=int(id[:-1]), text=message)
 
 
+def once(context: CallbackContext) -> None:
+    message = """Привет, у меня набралось уже какое-то количество функционала, вероятно, вы не все о нём всё знаете, так что давайте я расскажу:
+    1) /start - вы получите приветное сообщение и добавитесь в список тех, кто получает милую рассылку
+    2) /bye - вы получите прощальное сообщение и исключитесь из списка получающих милую рассылку
+    3) На сообщение со словами \"хорошо\" и \"плохо\" вы получаете определённые ответы
+    4) Как и на сообщения со словами \"мур\" и \"мяу\"
+    Возможно, фичи будут добавляться, следите за новостями!
+    Всем счастья и любви)"""
+    for id in open(PATH):
+        context.bot.send_message(chat_id=int(id[:-1]), text=message)
+
+
 def _add_user_by_id(new_id: int) -> None:
     if str(new_id) + "\n" in open(PATH):
         return
