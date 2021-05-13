@@ -7,6 +7,7 @@ MY_ID = 472565949
 ANDREW_ID = 333294297
 RITA_ID = 808833615
 PATH = "/home/ubuntu/PycharmProjects/tgLoveBot/users_id.txt"
+MYAUMUR = {"Мяу": "Мур", "мяу": "мур", "Мур": "Мяу", "мур": "мяу"}
 GOOD_MORNINGS = ["Доброе утро, любимая)\nХорошего тебе дня😘",
                  "Доброе утро♥️",
                  "Привет) Как спалось?)",
@@ -77,5 +78,7 @@ def reply(update: Update, _: CallbackContext) -> None:
         update.message.reply_text("Замечательно, очень рад за тебя)")
     elif "плохо" in user_message or "Плохо" in user_message:
         update.message.reply_text("Зай, не грусти, ты со всем справишься, всё будет хорошо♥")
+    elif user_message in MYAUMUR:
+        update.message.reply_text(MYAUMUR[user_message])
     else:
         update.message.reply_text(")")
