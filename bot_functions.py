@@ -58,7 +58,7 @@ def _remove_user_by_id(removing_id: int) -> None:
     new_users_id.close()
 
 
-def hi(update: Update, _: CallbackContext) -> None:
+def start(update: Update, _: CallbackContext) -> None:
     _add_user_by_id(update.message.chat_id)
     update.message.reply_text("Hello darling♥")
 

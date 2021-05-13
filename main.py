@@ -22,7 +22,7 @@ for hour, minute, second in RANDOM_MESSAGE_TIME:
         bot_functions.send_random_message, time=datetime.time(hour=hour, minute=minute, second=second)
     )
 
-dispatcher.add_handler(CommandHandler("hi", bot_functions.hi))
+dispatcher.add_handler(CommandHandler("start", bot_functions.start))
 dispatcher.add_handler(CommandHandler("bye", bot_functions.bye))
 dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, bot_functions.reply))
 
