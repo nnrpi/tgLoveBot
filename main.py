@@ -7,7 +7,7 @@ import bot_functions
 
 TOKEN = "1730704056:AAGbswrrc5tR8qnw5p_JxE6Z25J-Uo0pBdw"
 TEST_TOKEN = "1767534586:AAGGYJjvfuEMENwXqwj14pRajerHuu8HpVw"
-RANDOM_MESSAGE_TIME = [(7, 12, 00), (10, 28, 00), (13, 36, 00), (14, 7, 00), (17, 17, 00), (16, 42, 00)]
+RANDOM_MESSAGE_TIME = [(6, 16, 00), (10, 28, 00), (13, 36, 00), (14, 7, 00), (17, 17, 00), (16, 42, 00)]
 
 updater = Updater(token=TOKEN, use_context=True)
 dispatcher = updater.dispatcher
