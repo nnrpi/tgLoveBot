@@ -7,15 +7,14 @@ import bot_functions
 
 TOKEN = "1730704056:AAGbswrrc5tR8qnw5p_JxE6Z25J-Uo0pBdw"
 TEST_TOKEN = "1767534586:AAGGYJjvfuEMENwXqwj14pRajerHuu8HpVw"
-RANDOM_MESSAGE_TIME = [(6, 16, 00), (10, 28, 00), (13, 36, 00), (14, 7, 00), (17, 17, 00), (16, 42, 00)]
+RANDOM_MESSAGE_TIME = [(10, 28, 00), (14, 7, 00)]
 
 updater = Updater(token=TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 job = updater.job_queue
-job.run_once(bot_functions.once, 5)
-job.run_daily(bot_functions.send_random_message, time=datetime.time(hour=18, minute=16, second=00))
+#job.run_once(bot_functions.once, 5)
 job.run_daily(bot_functions.good_morning, time=datetime.time(hour=5, minute=0, second=00))
 job.run_daily(bot_functions.good_night, time=datetime.time(hour=18, minute=00, second=00))
 for hour, minute, second in RANDOM_MESSAGE_TIME:
