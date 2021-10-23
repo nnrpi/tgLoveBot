@@ -24,6 +24,7 @@ for hour, minute, second in RANDOM_MESSAGE_TIME:
 
 dispatcher.add_handler(CommandHandler("start", bot_functions.start))
 dispatcher.add_handler(CommandHandler("bye", bot_functions.bye))
+dispatcher.add_handler(CommandHandler("help", bot_functions.help))
 dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, bot_functions.reply))
 
 updater.start_polling()

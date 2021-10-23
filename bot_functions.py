@@ -86,7 +86,7 @@ def help(update: Update, _: CallbackContext) -> None:
         3) На сообщение со словами \"хорошо\" и \"плохо\" вы получаете определённые ответы
         4) Как и на сообщения со словами \"мур\" и \"мяу\"
         Счастья и любви)"""
-    update.massage.reply_text(message)
+    update.message.reply_text(message)
 
 
 def echo(update: Update, _: CallbackContext) -> None:
